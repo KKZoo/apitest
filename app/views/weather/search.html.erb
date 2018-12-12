@@ -1,0 +1,4 @@
+<p>This is a weather#search</p>
+
+<%= collection_select :locate, :id, Prefecture.all, :id, :name %>
+<%= observe_field(:prefecture_id) %>

@@ -1,0 +1,41 @@
+// Place all the styles related to the weather controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.weather-header{
+	display: flex;
+  justify-content: center;
+  align-items: center;
+	height: 100px;
+	background: #000;
+	color: #fff
+}
+
+.daily-weather{
+	display: flex;
+  justify-content: center;
+	align-items: center;
+}
+
+.today{
+	margin: 10px;
+}
+
+.tomorrow{
+	margin: 10px;
+}
+
+.weather-info{
+	display: flex;
+	flex-direction: column;
+  justify-content: center;
+	align-items: center;
+}
+
+.celsius_max{
+	color: #f90;
+}
+
+.celsius_min{
+	color: #09f;
+}
