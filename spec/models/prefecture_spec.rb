@@ -1,4 +1,6 @@
-require 'rails_helper'
+# frozen_string_literal: true
+
+require "rails_helper"
 
 RSpec.describe Prefecture, type: :model do
   it "都道府県のモデルテスト" do
