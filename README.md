@@ -1,24 +1,5 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+これは、[livedoorの天気api](http://weather.livedoor.com/weather_hacks/webservice)から情報を取得して、表示するアプリで、[Weather](https://sleepy-temple-35248.herokuapp.com/)にて現在公開中です。
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+現在地情報は東京都東京を取得しております。
