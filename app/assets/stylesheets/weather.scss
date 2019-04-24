@@ -3,39 +3,46 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .weather-header{
-	display: flex;
+  display: flex;
   justify-content: center;
   align-items: center;
-	height: 100px;
-	background: #000;
-	color: #fff
+  height: 100px;
+  background: #000;
+  color: #fff
 }
 
 .daily-weather{
-	display: flex;
+  display: flex;
   justify-content: center;
-	align-items: center;
+  align-items: center;
 }
 
 .today{
-	margin: 10px;
+  margin: 10px;
 }
 
 .tomorrow{
-	margin: 10px;
+  margin: 10px;
 }
 
 .weather-info{
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-	align-items: center;
+  align-items: center;
 }
 
 .celsius_max{
-	color: #f90;
+  color: #f90;
 }
 
 .celsius_min{
-	color: #09f;
+  color: #09f;
+}
+
+.select-cities{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

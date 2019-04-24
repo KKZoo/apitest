@@ -1,0 +1,8 @@
+<div class="select-cities">
+  <% @city = City.new unless @select %>
+  <%= form_for @city, :url => {:action => "update"} do |f| %>
+    <%= f.label :select_city %>:
+    <%= collection_select :locate, :id, City.all, :weather_id, :name %>
+    <%= f.submit "決定" %>
+  <% end %>
+</div>

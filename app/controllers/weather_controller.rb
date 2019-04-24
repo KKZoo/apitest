@@ -11,7 +11,8 @@ class WeatherController < ApplicationController
   json = Net::HTTP.get(uri)
   $result = JSON.parse(json)
 
-  def show; end
+  def show
+  end
 
   def today
     # 天気の取得
@@ -55,5 +56,14 @@ class WeatherController < ApplicationController
     else
       $result["forecasts"][1]["temperature"]["min"]["celsius"]
     end
+  end
+
+  def update
+    locate = params[:locate][:id]
+    weather_id = locate
+    uri = URI.parse("http://weather.livedoor.com/forecast/webservice/json/v1?city=#{weather_id}")
+    json = Net::HTTP.get(uri)
+    $result = JSON.parse(json)
+    redirect_to root_path
   end
 end
