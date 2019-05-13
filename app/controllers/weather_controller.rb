@@ -20,7 +20,7 @@ class WeatherController < ApplicationController
 
     # 天気の表示場所
     @locate_prefecture = $result["location"]["prefecture"]
-    @locate_prefecture = $result["location"]["area"] if $result["location"]["area"] == "北海道" 
+    @locate_prefecture = $result["location"]["area"] if $result["location"]["area"] == "北海道"
     @locate_city = $result["location"]["city"]
 
     # 天気の取得
