@@ -1,6 +1,6 @@
 <div class="daily-weather">
-  <p class="today"><%= link_to t(".today"), :controller => "weather", :action => "today" %>1</p>
-  <p class="tomorrow"><%= link_to t(".tomorrow"), :controller => "weather", :action => "tomorrow" %></p>
+  <p class="today"><%= link_to t(".today"), :controller => "weather", :action => "today" %>(<%= @today%>)</p>
+  <p class="tomorrow"><%= link_to t(".tomorrow"), :controller => "weather", :action => "tomorrow" %>(<%= @tomorrow %>)</p>
 </div>
 
 <div class="weather-info">
