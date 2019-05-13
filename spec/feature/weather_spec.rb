@@ -8,7 +8,7 @@ RSpec.describe "weather", type: :feature do
     @result = JSON.parse(json)
   end
 
-  scenario "Todayのテスト" do
+  scenario "Todayの日本語テスト" do
     visit root_path
     expect(page).to have_content "Today Weather"
     expect(page).to have_content "today"
@@ -17,7 +17,7 @@ RSpec.describe "weather", type: :feature do
     expect(page).to have_content "天気: #{@result["forecasts"][0]["telop"]}"
   end
 
-  scenario "Tomorrowのテスト" do
+  scenario "Tomorrowの日本語テスト" do
     visit tomorrow_path
     expect(page).to have_content "Tomorrow Weather"
     expect(page).to have_content "today"

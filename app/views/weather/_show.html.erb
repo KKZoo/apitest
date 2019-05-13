@@ -1,12 +1,12 @@
 <div class="daily-weather">
-  <p class="today"><%= link_to "today", :controller => "weather", :action => "today" %></p>
-  <p class="tomorrow"><%= link_to "tomorrow", :controller => "weather", :action => "tomorrow" %></p>
+  <p class="today"><%= link_to t(".today"), :controller => "weather", :action => "today" %></p>
+  <p class="tomorrow"><%= link_to t(".tomorrow"), :controller => "weather", :action => "tomorrow" %></p>
 </div>
 
 <div class="weather-info">
-  <p class="locate_city">場所: <%= @locate_prefecture %><%= @locate_city %></p>
-  <p class="weather">天気: <%= @weather %></p>
-  <p class="weather_img">天気画像: <img src="<%= @weather_image %>"></p>
-  <p class="celsius_max">最高気温: <%= @celsius_max %></p>
-  <p class="celsius_min">最低気温: <%= @celsius_min %></p>
+  <p class="locate_city"><%= t(".locate") %>: <%= @locate_prefecture %><%= @locate_city %></p>
+  <p class="weather"><%= t(".weather") %>: <%= @weather %></p>
+  <p class="weather_img"> <%= t(".weather_image") %>: <img src="<%= @weather_image %>"></p>
+  <p class="celsius_max"><%= t(".celsius_max") %>: <%= @celsius_max %></p>
+  <p class="celsius_min"><%= t(".celsius_min") %>: <%= @celsius_min %></p>
 </div>

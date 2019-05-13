@@ -1,0 +1,20 @@
+ja:
+  layouts:
+    header:
+      weather: 天気
+      Today: 今日の
+      Tomorrow: 明日の
+  weather:
+    show:
+      today: 今日
+      tomorrow: 明日
+      locate: 場所
+      weather: 天気
+      weather_image: 天気画像
+      celsius_max: 最高気温
+      celsius_min: 最低気温
+  activerecord:
+    attributes:
+      city:
+        select_city: 場所を選択
+

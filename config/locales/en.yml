@@ -31,3 +31,21 @@
 
 en:
   hello: "Hello world"
+  layouts:
+    header:
+      weather: Weather
+      Today: Today
+      Tomorrow: Tomorrow
+  weather:
+    show:
+      today: Today
+      tomorrow: Tomorrow
+      locate: Locate
+      weather: Weather
+      weather_image: "Weather Image"
+      celsius_max: "Celsius MAX"
+      celsius_min: "Celsius MIN"
+  activerecord:
+    attributes:
+      city:
+        select_city: "Select City"
