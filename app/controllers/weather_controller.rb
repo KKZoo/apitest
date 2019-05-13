@@ -18,6 +18,14 @@ class WeatherController < ApplicationController
     # 天気の日時
     @weather_time = "Today"
 
+    # 今日の日付を生成
+    date = $result["forecasts"][0]["date"].split("-")
+    @today = "#{date[1].to_i}\/#{date[2].to_i}"
+    
+    # 明日の日付を生成
+    date = $result["forecasts"][1]["date"].split("-")
+    @tomorrow = "#{date[1].to_i}\/#{date[2].to_i}"
+
     # 天気の表示場所
     @locate_prefecture = $result["location"]["prefecture"]
     @locate_prefecture = $result["location"]["area"] if $result["location"]["area"] == "北海道"
@@ -47,6 +55,14 @@ class WeatherController < ApplicationController
   def tomorrow
     # 天気の日時
     @weather_time = "Tomorrow"
+
+    # 今日の日付を生成
+    date = $result["forecasts"][0]["date"].split("-")
+    @today = "#{date[1].to_i}\/#{date[2].to_i}"
+    
+    # 明日の日付を生成
+    date = $result["forecasts"][1]["date"].split("-")
+    @tomorrow = "#{date[1].to_i}\/#{date[2].to_i}"
 
     # 天気の表示場所
     @locate_prefecture = $result["location"]["prefecture"]
