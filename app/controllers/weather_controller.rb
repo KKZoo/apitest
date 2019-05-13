@@ -15,6 +15,11 @@ class WeatherController < ApplicationController
   end
 
   def today
+    # 天気の表示場所
+    @locate_prefecture = $result["location"]["prefecture"]
+    @locate_prefecture = $result["location"]["area"] if $result["location"]["area"] == "北海道" 
+    @locate_city = $result["location"]["city"]
+
     # 天気の取得
     @weather = $result["forecasts"][0]["telop"]
 
@@ -37,6 +42,11 @@ class WeatherController < ApplicationController
   end
 
   def tomorrow
+    # 天気の表示場所
+    @locate_prefecture = $result["location"]["prefecture"]
+    @locate_prefecture = $result["location"]["area"] if $result["location"]["    area"] == "北海道"
+    @locate_city = $result["location"]["city"]
+
     # 天気の取得
     @weather = $result["forecasts"][1]["telop"]
 
