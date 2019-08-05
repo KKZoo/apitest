@@ -15,8 +15,17 @@ class WeatherController < ApplicationController
   end
 
   def today
+    ReadWeather(0)
+  end
+
+  def tomorrow
+    ReadWeather(1)
+  end
+
+  def ReadWeather(day_info)
     # 天気の日時
-    @weather_time = "Today"
+    day = ["Today","Tomorrow"]
+    @weather_time = day[day_info]
 
     # 今日の日付を生成
     date = $result["forecasts"][0]["date"].split("-")
@@ -32,61 +41,23 @@ class WeatherController < ApplicationController
     @locate_city = $result["location"]["city"]
 
     # 天気の取得
-    @weather = $result["forecasts"][0]["telop"]
+    @weather = $result["forecasts"][day_info]["telop"]
 
     # 天気の画像を取得
-    @weather_image = $result["forecasts"][0]["image"]["url"]
+    @weather_image = $result["forecasts"][day_info]["image"]["url"]
 
     # 最大気温の取得
-    @celsius_max = if $result["forecasts"][0]["temperature"]["max"].nil? == true
+    @celsius_max = if $result["forecasts"][day_info]["temperature"]["max"].nil? == true
       "--"
     else
-      $result["forecasts"][0]["temperature"]["max"]["celsius"]
+      $result["forecasts"][day_info]["temperature"]["max"]["celsius"]
     end
 
     # 最低気温の取得
-    @celsius_min = if $result["forecasts"][0]["temperature"]["min"].nil? == true
+    @celsius_min = if $result["forecasts"][day_info]["temperature"]["min"].nil? == true
       "--"
     else
-      $result["forecasts"][0]["temperature"]["min"]["celsius"]
-    end
-  end
-
-  def tomorrow
-    # 天気の日時
-    @weather_time = "Tomorrow"
-
-    # 今日の日付を生成
-    date = $result["forecasts"][0]["date"].split("-")
-    @today = "#{date[1].to_i}\/#{date[2].to_i}"
-    
-    # 明日の日付を生成
-    date = $result["forecasts"][1]["date"].split("-")
-    @tomorrow = "#{date[1].to_i}\/#{date[2].to_i}"
-
-    # 天気の表示場所
-    @locate_prefecture = $result["location"]["prefecture"]
-    @locate_prefecture = $result["location"]["area"] if $result["location"]["    area"] == "北海道"
-    @locate_city = $result["location"]["city"]
-
-    # 天気の取得
-    @weather = $result["forecasts"][1]["telop"]
-
-    # 天気の画像を取得
-    @weather_image = $result["forecasts"][1]["image"]["url"]
-
-    # 最大気温の取得
-    @celsius_max = if $result["forecasts"][1]["temperature"]["max"].nil? == true
-      "--"
-    else
-      $result["forecasts"][1]["temperature"]["max"]["celsius"]
-    end
-
-    # 最低気温の取得
-    @celsius_min = if $result["forecasts"][1]["temperature"]["min"].nil? == true
-      "--"
-    else
-      $result["forecasts"][1]["temperature"]["min"]["celsius"]
+      $result["forecasts"][day_info]["temperature"]["min"]["celsius"]
     end
   end
 
