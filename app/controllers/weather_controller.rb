@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-class WeatherController < ApplicationController
-  require "net/http"
-  require "uri"
-  require "json"
+require "net/http"
+require "uri"
+require "json"
 
+class WeatherController < ApplicationController
   # livedoorの天気apiからデータを取得
   weather_id = "130010"
   uri = URI.parse("http://weather.livedoor.com/forecast/webservice/json/v1?city=#{weather_id}")
@@ -15,11 +15,11 @@ class WeatherController < ApplicationController
   end
 
   def today
-    ReadWeather(0)
+    read_weather(0)
   end
 
   def tomorrow
-    ReadWeather(1)
+    read_weather(1)
   end
 
   def update
@@ -33,18 +33,18 @@ class WeatherController < ApplicationController
 
 private
 
-  def ReadWeather(day_info)
+  def read_weather(day_info)
     # 天気の日時
     day = ["Today", "Tomorrow"]
     @weather_time = day[day_info]
 
     # 今日の日付を生成
-    date = $result["forecasts"][0]["date"].split("-")
-    @today = "#{date[1].to_i}\/#{date[2].to_i}"
+    # date = $result["forecasts"][0]["date"].split("-")
+    # @today = "#{date[1].to_i}\/#{date[2].to_i}"
 
     # 明日の日付を生成
-    date = $result["forecasts"][1]["date"].split("-")
-    @tomorrow = "#{date[1].to_i}\/#{date[2].to_i}"
+    # date = $result["forecasts"][1]["date"].split("-")
+    # @tomorrow = "#{date[1].to_i}\/#{date[2].to_i}"
 
     # 天気の表示場所
     @locate_prefecture = $result["location"]["prefecture"]
