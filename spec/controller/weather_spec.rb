@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "rails_helper"
 
 RSpec.describe WeatherController, type: :controller do
@@ -17,8 +19,8 @@ RSpec.describe WeatherController, type: :controller do
 
   describe "update" do
     example "updateが正常にリダイレクトする" do
-      patch :update, params:{
-        locate:{id: "130010"}  
+      patch :update, params: {
+        locate: { id: "130010" }
       }
       expect(response).to be_redirect
     end
