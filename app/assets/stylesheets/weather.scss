@@ -53,21 +53,40 @@
 /*weather-infoの表示場所を設定*/
 .weather-info{
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
+}
+
+.weather-info-contents{
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px;
+}
+
+.weather-info-item{
+  width: 40%;
+  text-align: right;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.weather-info-description{
+  width: 60%;
+  text-align: left;
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 
 /*温度の文字の設定*/
-.celsius_max{
+.celsius-max{
   color: #f90;
 }
 
-.celsius_min{
+.celsius-min{
   color: #09f;
 }
 
-/*セレクトボックスの位置を設定*/
+/*セレクトボックスの設定*/
 .select-cities{
   display: flex;
   flex-direction: column;

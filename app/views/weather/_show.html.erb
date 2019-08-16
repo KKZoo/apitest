@@ -3,10 +3,17 @@
   <p><%= button_to t(".tomorrow"), {:controller => "weather", :action => "tomorrow"}, {method: :get, class: "tomorrow"} %></p>
 </div>
 
-<div class="weather-info">
-  <p class="locate_city"><%= t(".locate") %>: <%= @locate_prefecture %><%= @locate_city %></p>
-  <p class="weather"><%= t(".weather") %>: <%= @weather %></p>
-  <p class="weather_img"> <%= t(".weather_image") %>: <img src="<%= @weather_image %>"></p>
-  <p class="celsius_max"><%= t(".celsius_max") %>: <%= @celsius_max %></p>
-  <p class="celsius_min"><%= t(".celsius_min") %>: <%= @celsius_min %></p>
-</div>
+<section class="weather-info">
+<dl class="weather-info-contents">
+  <div class="weather-info-item"><dt class="locate-city"><%= t(".locate") %>:</dt></div>
+  <div class="weather-info-description"><dd class="locate-city"><%= @locate_prefecture %><%= @locate_city %></dd></div>
+  <div class="weather-info-item"><dt class="weather"><%= t(".weather") %>:</dt></div>
+  <div class="weather-info-description"><dd class="weather"><%= @weather %></dd></div>
+  <div class="weather-info-item"><dt class="weather-img"> <%= t(".weather_image") %>:</dt></div>
+  <div class="weather-info-description"><dd class="weather-img"><img src="<%= @weather_image %>"></dd></div>
+  <div class="weather-info-item"><dt class="celsius-max"><%= t(".celsius_max") %>:</dt></div>
+  <div class="weather-info-description"><dd class="celsius-max"><%= @celsius_max %></dd></div>
+  <div class="weather-info-item"><dt class="celsius-min"><%= t(".celsius_min") %>:</dt></div>
+  <div class="weather-info-description"><dd class="celsius-min"><%= @celsius_min %></dd></div>
+</dl>
+</section>
