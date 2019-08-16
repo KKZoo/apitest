@@ -36,6 +36,9 @@ en:
       weather: Weather
       Today: Today
       Tomorrow: Tomorrow
+    footer:
+      author: Author
+      github: GitHub
   weather:
     show:
       today: Today

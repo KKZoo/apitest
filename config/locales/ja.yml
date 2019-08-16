@@ -4,6 +4,9 @@ ja:
       weather: 天気
       Today: 今日の
       Tomorrow: 明日の
+    footer:
+      author: 作成者
+      github: GitHub
   weather:
     show:
       today: 今日

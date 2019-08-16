@@ -74,3 +74,22 @@
   justify-content: center;
   align-items: center;
 }
+
+/*フッターの設定*/
+#wrapper{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+footer{
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  background: #000;
+}
+
+footer p:link{ color: #fff; }
+footer p:visited{ color : #fff; }
