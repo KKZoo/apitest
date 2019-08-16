@@ -6,7 +6,7 @@
 <section class="weather-info">
 <dl class="weather-info-contents">
   <div class="weather-info-item"><dt class="locate-city"><%= t(".locate") %>:</dt></div>
-  <div class="weather-info-description"><dd class="locate-city"><%= @locate_prefecture %><%= @locate_city %></dd></div>
+  <div class="weather-info-description"><dd class="locate-city"><%= "#{@locate_prefecture}\n" %><%= @locate_city %></dd></div>
   <div class="weather-info-item"><dt class="weather"><%= t(".weather") %>:</dt></div>
   <div class="weather-info-description"><dd class="weather"><%= @weather %></dd></div>
   <div class="weather-info-item"><dt class="weather-img"> <%= t(".weather_image") %>:</dt></div>
