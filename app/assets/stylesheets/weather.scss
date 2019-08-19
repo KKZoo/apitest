@@ -9,7 +9,7 @@
   align-items: center;
   height: 100px;
   background: #000;
-  color: #fff
+  color: #fff;
 }
 
 .daily-weather{
@@ -61,20 +61,24 @@
   display: flex;
   flex-wrap: wrap;
   margin: 10px;
+  background: #fffaf0;
+  border: solid;
 }
 
 .weather-info-item{
-  width: 40%;
+  width: 50%;
   text-align: right;
   margin-top: 5%;
   margin-bottom: 5%;
+  background: #faf0e6;
 }
 
 .weather-info-description{
-  width: 60%;
+  width: 50%;
   text-align: left;
   margin-top: 5%;
   margin-bottom: 5%;
+  background: #faf0e6;
 }
 
 /*温度の文字の設定*/

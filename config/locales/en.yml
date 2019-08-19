@@ -37,7 +37,7 @@ en:
       Today: Today
       Tomorrow: Tomorrow
     footer:
-      author: Author
+      developer: Developer
       github: GitHub
   weather:
     show:
