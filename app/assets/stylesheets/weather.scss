@@ -21,7 +21,7 @@
 /*背景デザイン*/
 .sky{
   animation: cloud 25s linear infinite;
-  background: url("clouds.png")
+  background: image-url("clouds.png")
   ,linear-gradient(#bbe4fa, hsl(171, 40%, 91%));
   background-position-x: 0%;
   background-position-y: 35%;
@@ -42,7 +42,7 @@
 /*雨の背景*/
 .rain{
   animation: rain 5s linear infinite;
-  background: url("rain.png"), #C0C0C0;
+  background: image-url("rain.png"), #C0C0C0;
   background-position-x: 0%;
   background-position-y: 0%;
   background-repeat: repeat-y;
