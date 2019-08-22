@@ -18,6 +18,48 @@
   align-items: center;
 }
 
+/*背景デザイン*/
+.sky{
+  animation: cloud 25s linear infinite;
+  background: url("clouds.png")
+  ,linear-gradient(#bbe4fa, hsl(171, 40%, 91%));
+  background-position-x: 0%;
+  background-position-y: 35%;
+  background-repeat: repeat-x;
+  background-size: 800px auto;
+  height: 100%px;
+}
+
+@keyframes cloud {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: 800px;
+  }
+}
+
+/*雨の背景*/
+.rain{
+  animation: rain 5s linear infinite;
+  background: url("rain.png"), #C0C0C0;
+  background-position-x: 0%;
+  background-position-y: 0%;
+  background-repeat: repeat-y;
+  background-size: 800px auto;
+  height: 100%;
+}
+
+@keyframes rain {
+  from {
+    background-position-y: 0;
+  }
+  to {
+    background-position-y: 800px;
+  }
+}
+
+
 /*today ボタンの設定*/
 .today{
   display: block;

@@ -1,6 +1,12 @@
+<% if @weather.include?("雨")==true || @weather.include?("rain")==true%>
+  <div class="rain">
+<% else %>
+  <div class="sky">
+<% end %>
 <div id="wrapper">
   <%= render "layouts/header"%>
   <%= render "show" %>
   <%= render "search" %>
   <%= render "layouts/footer"%>
+</div>
 </div>
