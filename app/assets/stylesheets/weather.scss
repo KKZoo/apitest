@@ -43,11 +43,11 @@
 .rain{
   animation: rain 5s linear infinite;
   background: image-url("rain.png"), #C0C0C0;
-  background-position-x: 0%;
+  background-position-x: 35%;
   background-position-y: 0%;
-  background-repeat: repeat-y;
+  background-repeat: repeat;
   background-size: 800px auto;
-  height: 100%;
+  width: 100%;
 }
 
 @keyframes rain {
