@@ -13,14 +13,14 @@ RSpec.describe "weather", type: :feature do
   scenario "Todayのテスト" do
     visit root_path
     expect(page).to have_content "今日の天気"
-    expect(page).to have_content "場所: #{@result["location"]["city"]}"
-    expect(page).to have_content "天気: #{@result["forecasts"][0]["telop"]}"
+    expect(page).to have_content "#{@result["location"]["city"]}"
+    expect(page).to have_content "#{@result["forecasts"][0]["telop"]}"
   end
 
   scenario "Tomorrowのテスト" do
     visit tomorrow_path
     expect(page).to have_content "明日の天気"
-    expect(page).to have_content "場所: #{@result["location"]["city"]}"
-    expect(page).to have_content "天気: #{@result["forecasts"][1]["telop"]}"
+    expect(page).to have_content "#{@result["location"]["city"]}"
+    expect(page).to have_content "#{@result["forecasts"][1]["telop"]}"
   end
 end
