@@ -20,7 +20,7 @@ RSpec.describe WeatherController, type: :controller do
   describe "update" do
     example "updateが正常にリダイレクトする" do
       patch :update, params: {
-        locate: { id: "130010" }
+        locate: { id: "1850147" }
       }
       expect(response).to be_redirect
     end

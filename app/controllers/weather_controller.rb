@@ -6,10 +6,7 @@ require "json"
 
 class WeatherController < ApplicationController
   # livedoorの天気apiからデータを取得
-  weather_id = "130010"
-  uri = URI.parse("http://weather.livedoor.com/forecast/webservice/json/v1?city=#{weather_id}")
-  json = Net::HTTP.get(uri)
-  $result = JSON.parse(json)
+  $result = nil
 
   def show
   end
@@ -19,13 +16,14 @@ class WeatherController < ApplicationController
   end
 
   def tomorrow
-    read_weather(1)
+    read_weather(8)
   end
 
   def update
     locate = params[:locate][:id]
     weather_id = locate
-    uri = URI.parse("http://weather.livedoor.com/forecast/webservice/json/v1?city=#{weather_id}")
+    api_key = ENV['WEATHER_API_KEY'] 
+    uri = URI.parse("http://api.openweathermap.org/data/2.5/forecast?id=#{weather_id}&appid=#{api_key}")
     json = Net::HTTP.get(uri)
     $result = JSON.parse(json)
     redirect_to root_path
@@ -35,40 +33,41 @@ private
 
   def read_weather(day_info)
     # 天気の日時
-    day = ["Today", "Tomorrow"]
-    @weather_time = day[day_info]
+    day_info == 0 ? day = "Today" : day = "Tomorrow"
+    @weather_time = day
+    
+    if $result.nil? == true
+      # 天気の表示場所
+      @locate_prefecture = "--"
+      
+      # 天気の取得
+      @weather = "--"
 
-    # 今日の日付を生成
-    # date = $result["forecasts"][0]["date"].split("-")
-    # @today = "#{date[1].to_i}\/#{date[2].to_i}"
-
-    # 明日の日付を生成
-    # date = $result["forecasts"][1]["date"].split("-")
-    # @tomorrow = "#{date[1].to_i}\/#{date[2].to_i}"
-
-    # 天気の表示場所
-    @locate_prefecture = $result["location"]["prefecture"]
-    @locate_prefecture = $result["location"]["area"] if $result["location"]["area"] == "北海道"
-    @locate_city = $result["location"]["city"]
-
-    # 天気の取得
-    @weather = $result["forecasts"][day_info]["telop"]
-
-    # 天気の画像を取得
-    @weather_image = $result["forecasts"][day_info]["image"]["url"]
-
-    # 最大気温の取得
-    @celsius_max = if $result["forecasts"][day_info]["temperature"]["max"].nil? == true
-      "--"
+      # 天気の画像を取得
+      @weather_image = "--"
+  
+      # 最大気温の取得
+      @celsius_max = "--"
+  
+      # 最低気温の取得
+      @celsius_min = "--"
     else
-      $result["forecasts"][day_info]["temperature"]["max"]["celsius"]
-    end
-
-    # 最低気温の取得
-    @celsius_min = if $result["forecasts"][day_info]["temperature"]["min"].nil? == true
-      "--"
-    else
-      $result["forecasts"][day_info]["temperature"]["min"]["celsius"]
+      # 天気の表示場所
+      @locate_prefecture = $result["city"]["name"]
+      
+      # 天気の取得
+      @weather = $result["list"][day_info]["weather"][0]["main"]
+  
+      # 天気の画像を取得
+      icon = $result["list"][day_info]["weather"][0]["icon"]
+      icon[2] = "d"
+      @weather_image = "http://openweathermap.org/img/wn/#{icon}.png"
+  
+      # 最大気温の取得
+      @celsius_max = ($result["list"][day_info]["main"]["temp_max"] - 273.15).round(1)
+  
+      # 最低気温の取得
+      @celsius_min = ($result["list"][day_info]["main"]["temp_min"] - 273.15).round(1)
     end
   end
 end

@@ -39,6 +39,26 @@
   }
 }
 
+.cloud{
+  animation: cloud 25s linear infinite;
+  background: image-url("clouds.png")
+  ,#C0C0C0;
+  background-position-x: 0%;
+  background-position-y: 35%;
+  background-repeat: repeat-x;
+  background-size: 800px auto;
+  height: 100%px;
+}
+
+@keyframes cloud {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: 800px;
+  }
+}
+
 /*雨の背景*/
 .rain{
   animation: rain 5s linear infinite;

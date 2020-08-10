@@ -1,0 +1,15 @@
+<% if ["Rain","Thunderstorm","Tornado","Squall"].any? {|weather| @weather.include?(weather) } == true %>
+  <div class="rain">
+<% elsif ["Clear","Clouds","--"].any? {|weather| @weather.include?(weather) } == true %>
+  <div class="sky">
+<% else %>
+  <div class="cloud">
+<% end %>
+
+  <div id="wrapper">
+    <%= render "layouts/header"%>
+    <%= render "show" %>
+    <%= render "search" %>
+    <%= render "layouts/footer"%>
+  </div>
+</div>
